@@ -39,9 +39,10 @@ class Library(object):
 
 lxf = Library()
 lxf.book_add('history')
-#lxf.book_del('history')    # it has a problem"TypeError: an integer is required"
+lxf.book_del('history')    # it has a problem"TypeError: an integer is required"
 lxf.print_all_book_list()
 lxf.search_book('The kite runner')
 lxf.search_book('chinese')
 lxf.search_book('english')
+
 

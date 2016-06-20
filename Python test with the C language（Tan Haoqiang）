@@ -67,4 +67,23 @@ while True:
 print u"3.	求 1 - 1/2 + 1/3 - 1/4 + ... + 1/99 - 1/100"
 
 #=========================================
+print u"6. 给出 一个大于或等于3的正整数，判断它是不是一个素数"
+number = 17
+i = 2
+
+while True:
+	if i>=number:
+		break
+	else:
+		if number%i == 0:
+			print "%s is not su shu" %number
+			break
+		else:
+			i = i+1
+			print "now i is %s" %i
+
+#=========================================
+
+
+
 

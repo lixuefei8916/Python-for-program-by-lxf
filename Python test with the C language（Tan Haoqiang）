@@ -47,4 +47,18 @@ while True:
 		i = i+2
 print p
 
+#=========================================
 
+print u"4.判定 2000 – 2500 年终 的每一年是否为闰年，如1996/2008/2012/2048是闰年"
+year = 2000
+while True:
+	if year > 2501:
+		break
+	else:
+		if (year%4==0 and year%100!=0) or year%400==0 :
+			print "This is leap year %s" %year
+			year = year+1
+		else:
+			year = year+1
+			
+			

@@ -21,5 +21,14 @@ else:
 	else:
 		print c
 
-
+#=========================================
+print u"2.	求 1x2x3x4x5"
+p = 1   	#乘数
+i = 2 		#被乘数
+for i in range(1,6):
+	x = p
+	p = p*i
+	print "%s * %s = %s" %(x,i,p)
+	i = i+1
+print p
 

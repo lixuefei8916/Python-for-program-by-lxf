@@ -3,3 +3,23 @@
 #==========================
 # 答案编写者：lixuefei8916
 #==========================
+
+print u"输入a,b,c三个值，输出其最大者；"
+
+a = raw_input("Please input a: ")
+b = raw_input("Please input b: ")
+c = raw_input("Please input c: ")
+
+if a>b:
+	if a>c:
+		print a
+	else:
+		print c
+else:
+	if b>c:
+		print b
+	else:
+		print c
+
+
+

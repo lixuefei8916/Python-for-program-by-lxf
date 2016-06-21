@@ -96,6 +96,35 @@ x.append(b)
 x.append(c)
 
 #x = ['55','26','34','17','66','3','36','105','999','1']
+i = 0
+while True:
+	if x[i] == x[-1]:
+		break
+	else:
+		i=0
+		while i < len(x):
+			j = 0
+			while j < len(x):
+				if int(x[i])<int(x[j]):
+					print "Now is x[%s] = %s" %(i,x[i])
+					print "x[%s]=%s < x[%s]=%s" %(i,x[i],j,x[j])
+					print u'正在交换位置！！'
+					tmp1 = int(x[i])
+					tmp2 = int(x[j])
+					x[j] = int(tmp1)
+					x[i] = int(tmp2)
+					print u'交换后为  %s' %x
+					print "----------------"
+				else:
+					print "Now is x[%s] = %s" %(i,x[i])
+					print "x[%s]=%s > x[%s]=%s" %(i,x[i],j,x[j])
+					print u'无需交换位置'
+					print u'当前列表顺序  %s' %x
+					print "----------------"
+					pass
+				j = j+1
+			i = i+1
+		i = i+1
 
 
 

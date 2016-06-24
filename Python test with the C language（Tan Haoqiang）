@@ -228,4 +228,25 @@ lxf()
 
 #=========================================
 
+13.	求两个数 m和n的最大公约数
+x = 24
+y = 60
+
+if x>y:
+	tmp = y
+else:
+	tmp = x
+# 首先找出 x和y谁小， x小就用x除，如果除不尽，就x-1，x-2,x-3继续除
+
+def lxf():
+	i = tmp
+	while i>0:
+		if x%i==0 and y%i==0:
+			print u"最大公约数： %s" %i
+			break
+		else:
+			pass
+		i = i-1
+lxf()
+
 

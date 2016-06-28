@@ -315,6 +315,24 @@ lxf()
 
 #==========================================
 
+19.	解 的方程根，由键盘输入a,b,c。假设a,b,c的值任意，并不保证 。需要在程序中进行判别 ，如果 ，就计算并输出方程的两个实根，如果 ，就输出“方程无实根”。
+import math
+a = 2
+b = 4
+c = 1
+def lxf(a,b,c):
+	disc = b*b-4*a*c
+	if disc < 0:
+		print "No"
+	else:
+		p = b/(2.0*a);
+		q = math.sqrt(disc)/(2.0*a)
+		x1 = p+q;x2=p-q
+		print "real roots:\n x1=%s x2=%s" %(x1,x2)
+lxf(a,b,c)
+
+# a=6 b=3 c=1 结果是“无实根”；
+
 
 
 

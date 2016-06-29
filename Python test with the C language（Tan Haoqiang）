@@ -378,5 +378,12 @@ def lxf(grade):
 		print "A"
 	elif 80<grade<89:
 		print "B"
+	elif 70<grade<79:
+		print "C"
+	elif 60<grade<69:
+		print "D"
+	elif 0<grade<59:
+		print "E"
+lxf(grade)
 
 

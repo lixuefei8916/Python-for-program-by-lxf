@@ -374,5 +374,9 @@ grade = 6
 def lxf(grade):
 	if grade<0 or grade > 100:
 		print "Error"
+	elif 90<grade<99:
+		print "A"
+	elif 80<grade<89:
+		print "B"
 
 

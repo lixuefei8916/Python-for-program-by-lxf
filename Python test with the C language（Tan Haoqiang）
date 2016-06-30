@@ -412,4 +412,15 @@ def lxf(x):
 		print "> 5M"
 		exdex = 4
 
+	ten_thousand = x/10000
+	thousand=int((x-ten_thousand*10000)/1000)
+	hundred=int((x-ten_thousand*10000-thousand*1000))/100
+	ten=int((x-ten_thousand*10000-thousand*1000-hundred*100))/10;
+	indiv=int((x-ten_thousand*10000-thousand*1000-hundred*100-ten*10));
+
+	print "ten_thousand = %s" %ten_thousand
+	print "thousand = %s" %thousand
+	print "hundred= %s" %hundred
+	print "ten = %s" %ten
+	print "indiv = %s" %indiv
 

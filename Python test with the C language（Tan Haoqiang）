@@ -393,5 +393,23 @@ A 求出它是几位数
 B 分别输出每一位数字
 C 按逆序输出各位数字，例如原数为321，应输出123
 
+x = 974
+
+def lxf(x):
+	if 0<x<9:
+		print "1 W"
+		index = 0
+	elif 10<x<99:
+		print "2 W"
+		index = 1
+	elif 100 < x < 999:
+		print "3 W"
+		index = 2
+	elif 1000<x<9999:
+		print "4 W"
+		index = 3
+	else:
+		print "> 5M"
+		exdex = 4
 
 

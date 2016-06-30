@@ -424,3 +424,15 @@ def lxf(x):
 	print "ten = %s" %ten
 	print "indiv = %s" %indiv
 
+	if index == 0:
+		print "Ni %s" %(indiv)
+	elif index == 1:
+		print "Ni %s%s" %(indiv,ten)
+	elif index == 2:
+		print "Ni %s%s%s" %(indiv,ten,hundred)	
+	elif index == 3:
+		print "Ni %s%s%s%s" %(indiv,ten,hundred,thousand)
+	elif index ==4:
+		print "Ni %s%s%s%s%s" %(indiv,ten,hundred,thousand,ten_thousand)	
+
+lxf(x)

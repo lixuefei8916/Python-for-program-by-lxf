@@ -436,3 +436,6 @@ def lxf(x):
 		print "Ni %s%s%s%s%s" %(indiv,ten,hundred,thousand,ten_thousand)	
 
 lxf(x)
+
+#=========================================
+

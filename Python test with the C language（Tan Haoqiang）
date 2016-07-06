@@ -543,6 +543,9 @@ while i<=(x-1):
 	i = i+1
 if i == (x):
 	print "%s is a preime number." %x
+else:
+	print "%s is not a preime number" %x
+			pass
 
 
 

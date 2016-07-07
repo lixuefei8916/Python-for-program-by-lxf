@@ -577,4 +577,4 @@ for i in x:
 		Special_character = Special_character + 1
 		Special_character_lit.append(i)
 
-
+print "str has %s" %digit

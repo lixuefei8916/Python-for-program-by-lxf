@@ -566,5 +566,9 @@ digit_lit = []
 alpha_lit = []
 Special_character_lit = []
 
+for i in x:
+	if i.isdigit() == True:
+
+
 
 

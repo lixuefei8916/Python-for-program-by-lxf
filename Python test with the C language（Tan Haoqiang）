@@ -578,3 +578,9 @@ for i in x:
 		Special_character_lit.append(i)
 
 print "str has %s" %digit
+print digit_lit
+print "num has %s" %alpha
+
+
+
+

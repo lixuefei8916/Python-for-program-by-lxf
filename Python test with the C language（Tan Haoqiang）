@@ -573,6 +573,6 @@ for i in x:
 	elif i.isalpha() == True:
 		alpha = alpha + 1
 		alpha_lit.append(i)
-
+	else:
 
 

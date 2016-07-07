@@ -571,6 +571,8 @@ for i in x:
 		digit = digit + 1
 		digit_lit.append(i)
 	elif i.isalpha() == True:
+		alpha = alpha + 1
+		alpha_lit.append(i)
 
 
 

@@ -562,7 +562,9 @@ digit = 0 	#数字 的计数器
 alpha = 0 	#字母 的计数器
 Special_character = 0 	#特殊字符 的计数器
 
-
+digit_lit = []
+alpha_lit = []
+Special_character_lit = []
 
 
 

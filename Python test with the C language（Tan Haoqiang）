@@ -570,7 +570,7 @@ for i in x:
 	if i.isdigit() == True:
 		digit = digit + 1
 		digit_lit.append(i)
-
+	elif i.isalpha() == True:
 
 
 

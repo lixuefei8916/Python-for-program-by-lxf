@@ -568,6 +568,8 @@ Special_character_lit = []
 
 for i in x:
 	if i.isdigit() == True:
+		digit = digit + 1
+		digit_lit.append(i)
 
 
 

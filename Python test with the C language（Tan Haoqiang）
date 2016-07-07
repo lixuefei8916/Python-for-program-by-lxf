@@ -574,5 +574,7 @@ for i in x:
 		alpha = alpha + 1
 		alpha_lit.append(i)
 	else:
+		Special_character = Special_character + 1
+		Special_character_lit.append(i)
 
 

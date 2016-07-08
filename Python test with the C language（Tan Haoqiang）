@@ -591,6 +591,9 @@ print "num has %s" %alpha
 s = 2
 n = 5
 
+def sum(s,n):
+	now = s 	# now = now + xxx  自累积 
+	next=s 		# next 是  2 ，22 ， 222 ， 2222  直至n个2
 
 
 

@@ -594,6 +594,15 @@ n = 5
 def sum(s,n):
 	now = s 	# now = now + xxx  自累积 
 	next=s 		# next 是  2 ，22 ， 222 ， 2222  直至n个2
+	i=0 		# 循环的计数器 ，直到循环  n次，也就是 n个2
+	while i<n:
+		next = next*10+2
+		print "--------------------"
+		print "next is %s" %next
+		old_now = now
+		now = now + next
+		print "Now = %s + %s = %s" %(old_now,next,now)
+		i = i+1
 
 
 

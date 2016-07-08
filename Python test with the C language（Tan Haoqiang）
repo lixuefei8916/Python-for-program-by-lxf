@@ -603,6 +603,5 @@ def sum(s,n):
 		now = now + next
 		print "Now = %s + %s = %s" %(old_now,next,now)
 		i = i+1
-
-
+sum(s,n)
 

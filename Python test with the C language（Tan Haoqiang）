@@ -583,6 +583,12 @@ print "num has %s" %alpha
 print digit_lit
 print "num has %s" %alpha
 
+#=========================================
+
+32.	求 S = a + aa + aaa + … + aa..a；
+例如 2 + 22 + 222 + 22222 (n=5)
+
+
 
 
 

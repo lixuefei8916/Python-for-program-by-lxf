@@ -614,6 +614,12 @@ def lxf(x):
 	i = 1
 	now = 0
 	while i<x:
+		print "--------------"
+		old_now = now
+		now = now + i*i
+		print "now = %s + %s*%s = %s" %(old_now,i,i,now)
+		i = i+1
+lxf(x)
 
 
 

@@ -656,6 +656,9 @@ def yinzi(i):
 
 def wanshu(i,Yinzi):
 	sum_yinzi = sum(Yinzi)
+	if i == sum(Yinzi):
+		print "%s -- Yes " %i
+		print u"%s 的因子%s之和== %s " %(i,Yinzi,sum_yinzi)
 
 
 

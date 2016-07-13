@@ -645,5 +645,9 @@ i = 3 #求数  |  j是除数
 def yinzi(i):
 		Yinzi = []
 		j = 1  # 被除数
+		while j < i-1:
+			if i%j == 0:
+				Yinzi.append(j)
+				j = j+1
 
 

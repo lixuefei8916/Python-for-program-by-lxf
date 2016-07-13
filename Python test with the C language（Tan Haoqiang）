@@ -649,5 +649,7 @@ def yinzi(i):
 			if i%j == 0:
 				Yinzi.append(j)
 				j = j+1
+			else:
+				j = j+1
 
 

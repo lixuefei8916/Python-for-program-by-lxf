@@ -642,4 +642,8 @@ while i < 1000:
 
 i = 3 #求数  |  j是除数
 
+def yinzi(i):
+		Yinzi = []
+		j = 1  # 被除数
+
 

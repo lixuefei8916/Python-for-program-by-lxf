@@ -654,4 +654,8 @@ def yinzi(i):
 		i = i+1
 		return Yinzi
 
+def wanshu(i,Yinzi):
+	sum_yinzi = sum(Yinzi)
+
+
 

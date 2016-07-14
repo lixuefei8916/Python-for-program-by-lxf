@@ -687,4 +687,7 @@ while Time < 7:
 	last_fenzi = fenzi
 	fenzi = last_last_fenzi + last_fenzi
 
+	tmp = fenzi / float(fenmu)
+	print "%s = %s / %s" %(tmp,fenzi,fenmu)
+	sum_a.append(tmp)
 

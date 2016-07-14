@@ -691,3 +691,6 @@ while Time < 7:
 	print "%s = %s / %s" %(tmp,fenzi,fenmu)
 	sum_a.append(tmp)
 
+	last_last_fenmu = last_fenmu 
+	last_last_fenzi = last_fenzi 	
+	Time = Time + 1

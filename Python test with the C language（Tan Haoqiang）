@@ -679,5 +679,10 @@ last_fenzi = 1
 
 sum_a = []
 
+while Time < 7:
+	print "-----------------------"
+	last_fenmu = fenmu 
+	fenmu = last_last_fenmu + last_fenmu 
+
 
 

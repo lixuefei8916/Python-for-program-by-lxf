@@ -667,6 +667,12 @@ while i < 1000:
 
 36.	有一个份数序列
 
+fenzi = 1
+fenmu = 1
+Time = 1
+
+last_last_fenmu = 0
+last_fenmu = 0
 
 
 

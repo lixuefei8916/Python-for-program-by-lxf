@@ -674,6 +674,10 @@ Time = 1
 last_last_fenmu = 0
 last_fenmu = 0
 
+last_last_fenzi = 1
+last_fenzi = 1
+
+sum_a = []
 
 
 

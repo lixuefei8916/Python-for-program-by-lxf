@@ -684,5 +684,7 @@ while Time < 7:
 	last_fenmu = fenmu 
 	fenmu = last_last_fenmu + last_fenmu 
 
+	last_fenzi = fenzi
+	fenzi = last_last_fenzi + last_fenzi
 
 

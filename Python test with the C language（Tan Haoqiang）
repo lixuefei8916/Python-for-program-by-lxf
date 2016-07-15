@@ -699,6 +699,21 @@ while Time < 7:
 
 37.	一个球从100m高度自由落下，每次落地后反跳回原高度的一半，再落下，再反弹。求它在第10此落地时，共经过多少米，第10此反弹多高。
 
+high = 100
+
+Time = 1
+
+sum_a = 0
+
+while Time < 10:
+	fantan = float(high) / 2
+	sum_a = sum_a + high + fantan
+	high = fantan
+	print u"第%s次: %s %s" %(Time,sum_a,fantan)
+	print "------------------"
+	
+	Time = Time + 1
+
 
 
 

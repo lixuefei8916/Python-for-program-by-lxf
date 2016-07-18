@@ -721,6 +721,11 @@ while Time < 10:
 day = 0
 number = 1
 
+while day<9:
+	number = (number + 1) * 2
+	print "-------"
+	print number
+			day = day + 1
 
 
 

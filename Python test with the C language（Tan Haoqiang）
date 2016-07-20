@@ -739,5 +739,5 @@ while i < n:
 		print " ",
 		j = j+1
 
-
+	k = 0
 

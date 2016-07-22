@@ -783,4 +783,10 @@ while j > -1:
 
 45.	用数组来处理求Fibonacci数列问题
 
+f = [1,1]
+i = 2
+while i<20:
+	tmp = f[i-2] + f[i-1]
+	f.append(tmp)
+	i = i+1
 

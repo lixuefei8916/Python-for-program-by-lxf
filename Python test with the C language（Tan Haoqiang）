@@ -794,3 +794,7 @@ i = 0
 while i<20:
 	if i%5==0:
 		print "\n"
+	print f[i],
+	i = i+1
+print "\n"
+print "f = %s" %f

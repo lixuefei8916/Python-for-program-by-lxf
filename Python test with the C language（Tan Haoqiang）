@@ -822,6 +822,8 @@ while j < len(a):
 			print "%s < %s ,so no change" %(a[i],a[i+1])			
 			print "Zhen a[%s]" %a
 			pass			
-			
+		i = i+1
+	j = j+1
+print a			
 			
 			

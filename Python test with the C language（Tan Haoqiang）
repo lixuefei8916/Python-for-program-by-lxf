@@ -839,5 +839,9 @@ while i <= len(a):
 	while j <= len(a[0]):
 		b[j][i] = a[i][j]
 		j = j+1
+	i = i+1
+
+print a
+print b
 
 

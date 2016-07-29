@@ -879,6 +879,9 @@ diamond = [[' ',' ','*',' ',' ',],[' ','*',' ','*',' ',],['*',' ',' ',' ','*'],[
 i = 0
 while i<len(diamond):
 	j = 0
+	while j<5:
+		print diamond[i][j],
+		j = j+1
 
 
 

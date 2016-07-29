@@ -882,6 +882,8 @@ while i<len(diamond):
 	while j<5:
 		print diamond[i][j],
 		j = j+1
+	print '\n'	
+	i = i+1
 
 
 

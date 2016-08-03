@@ -900,5 +900,9 @@ while i < len(string):
 print "There are %s words in this line" %word
 
 
+#=======================================
 
+print u'51.	用筛选法求100之内的素数'
+# 素数 ： 除了1和它本身以外不再被其他的除数整除
+# del删除元素方法 ， 如果是 b.append，不知道怎么跳出2层循环
 

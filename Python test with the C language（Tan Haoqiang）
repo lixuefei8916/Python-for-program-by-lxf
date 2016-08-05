@@ -933,6 +933,12 @@ while j < len(a):
 		print "----------------------"
 		print "Now j = %s" %j
 		print "Now i = %s" %i
+		if int(a[i])>int(a[i+1]):
+			print "%s > %s ,so cange it" %(a[i],a[i+1])
+			t = int(a[i])
+			a[i] = int(a[i+1])
+			a[i+1] = int(t)
+			print "Zhen a[%s]" %a
 
 
 

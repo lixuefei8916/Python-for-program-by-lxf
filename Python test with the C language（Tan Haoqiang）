@@ -924,6 +924,15 @@ print b
 52.	用选择法对10个整数排序
 
 
+a = ['23','33','2','66','45','4','9','24']
+
+j = 0
+while j < len(a):
+	i = 0
+	while i<len(a)-1-j:
+		print "----------------------"
+		print "Now j = %s" %j
+		print "Now i = %s" %i
 
 
 

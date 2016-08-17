@@ -982,6 +982,8 @@ while i < len(a):
 		print "---------------------"
 		print "a[i]:%s < a[i+1]:%s < b:%s " %(a[i],a[i+1],b)
 		pass
+	i = i+1
+print a
 
 
 

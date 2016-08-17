@@ -973,6 +973,11 @@ a= [1,3,7,24,75,87,98]
 b = 95
 i = 0
 while i < len(a):
+	if a[i]<b and b<a[i+1]:
+		print "-------------------------"
+		print "a[i]:%s < b:%s < a[i+1]:%s "%(a[i],b,a[i+1])
+		a.insert(i,b)
+		break
 
 
 

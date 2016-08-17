@@ -978,6 +978,10 @@ while i < len(a):
 		print "a[i]:%s < b:%s < a[i+1]:%s "%(a[i],b,a[i+1])
 		a.insert(i,b)
 		break
+	else:
+		print "---------------------"
+		print "a[i]:%s < a[i+1]:%s < b:%s " %(a[i],a[i+1],b)
+		pass
 
 
 

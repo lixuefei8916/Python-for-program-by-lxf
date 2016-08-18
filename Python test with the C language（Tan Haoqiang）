@@ -992,7 +992,12 @@ print u'55.	有一个数组中的值按逆序重新存放，例如，原来顺�
 a = [1,6,8,12,15,27,47,68,99]
 
 i = 0
-
+while i < len(a)/2:
+	tmp = a[len(a)-i-1]
+	a[len(a)-i-1] = a[i]
+	a[i] = tmp
+	i = i+1
+print a
 
 
 

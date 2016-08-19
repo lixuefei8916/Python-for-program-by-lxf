@@ -1041,5 +1041,8 @@ while i < len(a):
 	min_list.append(min_)
 	i = i+1
 
+# max_list 和 min_list 是存放每行最大和最小值的列表，但没小标，一会儿通过鞍点找坐标吧
+i = 0
+
 
 

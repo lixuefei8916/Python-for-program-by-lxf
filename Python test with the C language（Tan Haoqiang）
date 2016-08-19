@@ -1053,6 +1053,11 @@ while i < len(max_list):
 			# =================================================
 			#找出鞍点的下标
 			n = 0
+			while n<len(a):
+				m = 0
+				while m < len(a[n]):
+					if AnDian == a[n][m]:
+						print "AnDian zuobiao is a[%s][%s]" %(n,m)
 
 
 

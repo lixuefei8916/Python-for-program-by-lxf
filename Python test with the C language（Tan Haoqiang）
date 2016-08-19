@@ -1046,6 +1046,13 @@ i = 0
 AnDian = 0 #假设鞍点是0，如果有鞍点则重新复制，如果没有，则最后判断Andian是否为0.如果是0，则没有鞍点，省的循环中重复说明没有andian
 while i < len(max_list):
 	j = 0
+	while j < len(min_list):
+		if max_list[i] == min_list[j]:    #找出鞍点 : 这行的max == 其他行的 min
+			AnDian = max_list[i]
+			print "AnDian is %s" %(max_list[i])
+			# =================================================
+			#找出鞍点的下标
+			n = 0
 
 
 

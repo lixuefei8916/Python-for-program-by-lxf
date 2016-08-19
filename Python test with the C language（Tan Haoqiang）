@@ -1043,6 +1043,9 @@ while i < len(a):
 
 # max_list 和 min_list 是存放每行最大和最小值的列表，但没小标，一会儿通过鞍点找坐标吧
 i = 0
+AnDian = 0 #假设鞍点是0，如果有鞍点则重新复制，如果没有，则最后判断Andian是否为0.如果是0，则没有鞍点，省的循环中重复说明没有andian
+while i < len(max_list):
+	j = 0
 
 
 

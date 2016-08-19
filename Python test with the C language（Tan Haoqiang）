@@ -1058,6 +1058,16 @@ while i < len(max_list):
 				while m < len(a[n]):
 					if AnDian == a[n][m]:
 						print "AnDian zuobiao is a[%s][%s]" %(n,m)
+					m = m+1
+				n = n+1
+			# =================================================
+		else:
+			pass
+		j = j+1
+	i = i+1
+
+if AnDian == 0:
+	print "No AnDian"
 
 
 

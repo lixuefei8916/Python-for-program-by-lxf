@@ -1026,6 +1026,16 @@ while i < len(a):
 	j = 0
 	max_ = a[i][0] 		#假设 a[i][0] 是最大 
 	min_ = a[i][0]		#假设 a[i][0] 是最小 
+	while j < len(a[i]):
+		if max_ < a[i][j]:
+			max_ = a[i][j]
+		elif max_ == a[i][j]:
+			pass
+		elif min_ == a[i][j]:
+			pass
+		elif min_ > a[i][j]:
+			min_ = a[i][j] 
+		j = j+1
 
 
 

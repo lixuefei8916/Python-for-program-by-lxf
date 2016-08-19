@@ -1036,6 +1036,10 @@ while i < len(a):
 		elif min_ > a[i][j]:
 			min_ = a[i][j] 
 		j = j+1
+	print "a[%s] Max = %s  ;  a[%s] Min = %s" %(i,max_,i,min_)
+	max_list.append(max_)
+	min_list.append(min_)
+	i = i+1
 
 
 

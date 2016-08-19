@@ -1021,6 +1021,11 @@ i = 0
 
 max_list = []
 min_list = []
+# 先求出每行 最大 和 最小值
+while i < len(a):
+	j = 0
+	max_ = a[i][0] 		#假设 a[i][0] 是最大 
+	min_ = a[i][0]		#假设 a[i][0] 是最小 
 
 
 

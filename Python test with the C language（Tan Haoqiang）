@@ -1085,6 +1085,12 @@ if number > a[(len(a))/2]:
 		if number == a[index]:
 			print "number=%s  ==  a[%s]=%s" %(number,index,a[index])
 			break
+		elif number > a[index] and number < a[index_list[-2]]:
+			print "Now , a[%s]=%s  <  %s ; " %(index,a[index],number)
+			print "elif 1"
+			index = (index + index_list[-2]) / 2	
+			print "index = %s(index) + %s(index_list[-2]) / 2 = %s  ; " %(index_list[-1],index_list[-2],index)
+			index_list.append(index)
 
 
 

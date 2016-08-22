@@ -1092,6 +1092,12 @@ if number > a[(len(a))/2]:
 			print "index = %s(index) + %s(index_list[-2]) / 2 = %s  ; " %(index_list[-1],index_list[-2],index)
 			index_list.append(index)
 
+		elif number < a[index] and number > a[index_list[-2]]:
+			print "Now , a[%s]=%s  >  %s ; " %(index,a[index],number)
+			print "elif 2  	:number < a[index] and number > a[last_index]"
+			index = (index_list[-2] - index)/2 + index
+			print "index = (%s(index_list[-2]) - %s(index_list[-1])) /2 + %s(index_list[-1]) = %s  ; " %(index_list[-2],index_list[-1],index_list[-1],index)
+			index_list.append(index)
 
 
 

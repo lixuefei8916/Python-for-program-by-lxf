@@ -1078,6 +1078,10 @@ number = 9
 index = (len(a))/2
 
 # 记录的  last_index 有问题 ，所以 number=11时，找不准 
+if number > a[(len(a))/2]:
+	index_list = [14,(len(a))/2]
+	while index < len(a):
+		print "-------------------"
 
 
 

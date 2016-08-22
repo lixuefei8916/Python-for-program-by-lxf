@@ -1082,6 +1082,9 @@ if number > a[(len(a))/2]:
 	index_list = [14,(len(a))/2]
 	while index < len(a):
 		print "-------------------"
+		if number == a[index]:
+			print "number=%s  ==  a[%s]=%s" %(number,index,a[index])
+			break
 
 
 

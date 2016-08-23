@@ -1130,6 +1130,14 @@ i = 0 		# 计数器：行
 while i<x:
 	j = 0
 	tmp = 0 	#计数器 ：星星的个数 ， 只能有 5个星星
-
+	while j < y:
+		if j<i:
+			print "-",
+		else:
+			if tmp < 5:
+				print "*",
+				tmp = tmp + 1
+			else:
+				pass
 
 

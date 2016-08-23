@@ -1111,7 +1111,14 @@ if number > a[(len(a))/2]:
 
 print "60.	有一篇文章，共有3行文字，每行有80个字符。要求分别统计出其中英文大写字母、小写字母、数字、空格以及其他字符的个数。"
 
+a = ['Python is running,']
+b = ['I have a python daemon running as a part of my web app.']
+c = ['How can I quickly check Python']
 
+
+for i in a:
+	for j in i:
+		print j
 
 
 

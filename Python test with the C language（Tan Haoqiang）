@@ -1140,4 +1140,6 @@ while i<x:
 			else:
 				pass
 
-
+		j = j+1
+	print "\n"
+	i = i+1

@@ -1167,6 +1167,9 @@ Python is running
 	def print_star():
 	print "***************"
 
+def print_str():
+	print "Python is running"
+
 
 
 

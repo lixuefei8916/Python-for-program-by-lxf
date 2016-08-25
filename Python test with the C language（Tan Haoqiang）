@@ -1169,6 +1169,12 @@ Python is running
 
 def print_str():
 	print "Python is running"
+def print_all():
+	print_star()
+	print_str()
+	print_star()
+
+print print_all()
 
 
 

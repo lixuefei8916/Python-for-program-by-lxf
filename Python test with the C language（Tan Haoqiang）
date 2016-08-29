@@ -1180,6 +1180,19 @@ print print_all()
 
 68.	例题7.2 输入两个整数，要求输出其中值较大者。要求用函数来找到大数。
 
+def max(x,y):
+	if x>y:
+		z = x
+	else:
+		z = y
+	return z
+
+def main_(x,y):
+	c = max(x,y)
+	print c
+
+main_(5,20)
+
 
 
 

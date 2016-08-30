@@ -1204,7 +1204,10 @@ def main(x,y):
 def max(x,y):
 	if float(x)>float(y):
 		z = float(x)
-
+	else:
+		z = float(y)
+	return z
+main(6.5,2.6)
 
 
 

@@ -1201,6 +1201,9 @@ def main(x,y):
 	c = max(float(x),float(y))
 	print c
 
+def max(x,y):
+	if float(x)>float(y):
+		z = float(x)
 
 
 

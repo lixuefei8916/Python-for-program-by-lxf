@@ -1209,5 +1209,20 @@ def max(x,y):
 	return z
 main(6.5,2.6)
 
+#=========================================================
+
+70. 例题7.4输入两个实数，用一个函数求出他们之和；
+def main(x,y):
+	c = add(float(x),float(y))
+	print c
+
+def add(x,y):
+	z = float(x+y)
+	return z
+
+main(2.7,3.0)
+
+
+
 
 

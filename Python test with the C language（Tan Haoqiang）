@@ -1243,7 +1243,7 @@ def max2(a,b):
 	else:
 		return b
 
-
+main(2,53,3,15)
 
 
 

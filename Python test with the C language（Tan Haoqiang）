@@ -1237,6 +1237,11 @@ def max4(a,b,c,d):
 	m = max2(m,d)
 	return m
 	
+def max2(a,b):
+	if a>=b:
+		return a
+	else:
+		return b
 
 
 

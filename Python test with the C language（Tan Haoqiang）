@@ -1231,6 +1231,12 @@ def main(a,b,c,d):
 	c = max4(a,b,c,d)
 	print c
 
+def max4(a,b,c,d):
+	m = max2(a,b)
+	m = max2(m,c)
+	m = max2(m,d)
+	return m
+	
 
 
 

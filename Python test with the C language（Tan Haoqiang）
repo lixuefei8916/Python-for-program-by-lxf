@@ -1271,6 +1271,10 @@ main()
 
 73.	例题7.7 用递归法求n!
 
+def main():
+	n = 5
+	y = fac(n)
+	print y
 
 
 

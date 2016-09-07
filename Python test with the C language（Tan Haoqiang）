@@ -1282,6 +1282,10 @@ def fac(n):
 		if n==0 or n==1:
 			f = 1
 		else:
+			f = fac(n-1) * n
+	return f
+
+main()
 
 
 

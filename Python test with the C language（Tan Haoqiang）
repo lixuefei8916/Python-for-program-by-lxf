@@ -1278,6 +1278,10 @@ def main():
 def fac(n):
 	if n<0:
 		print "Error ,n<0"
+	else:
+		if n==0 or n==1:
+			f = 1
+		else:
 
 
 

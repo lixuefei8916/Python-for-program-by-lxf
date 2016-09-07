@@ -1275,6 +1275,9 @@ def main():
 	n = 5
 	y = fac(n)
 	print y
+def fac(n):
+	if n<0:
+		print "Error ,n<0"
 
 
 

@@ -1303,6 +1303,10 @@ def hanoi(m,A,B,C):
 		move(m,A,C)
 		hanoi(m-1,B,A,C)
 
+def move(m,x,y):
+	print "Move %s from %s to %s" %(m,x,y)
+
+main()
 
 
 

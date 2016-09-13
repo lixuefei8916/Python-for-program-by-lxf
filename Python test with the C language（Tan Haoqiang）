@@ -1295,6 +1295,13 @@ def main():
 	print "The step to move %d diskes: \n,m"
 	hanoi(m,u'甲',u'乙',u'丙')
 
+def hanoi(m,A,B,C):
+	if(m==1):
+		move(m,A,C);
+	else:
+		hanoi(m-1,A,C,B)
+		move(m,A,C)
+		hanoi(m-1,B,A,C)
 
 
 

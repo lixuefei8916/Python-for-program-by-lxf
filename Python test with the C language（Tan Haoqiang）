@@ -1317,4 +1317,10 @@ def main():
 	i = 0
 	m = a[i]
 
+while i < len(a):
+		if max(m,a[i])>m:
+			m = max(m,a[i])
+			n = i  				# 把下表记录下来
+		i = i+1
+
 

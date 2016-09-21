@@ -1323,4 +1323,9 @@ while i < len(a):
 			n = i  				# 把下表记录下来
 		i = i+1
 
+print "The largets number is %s\n it is the %dth number" %(m,n+1)
+
+def max(x,y):
+	if x>y:
+		return x
 

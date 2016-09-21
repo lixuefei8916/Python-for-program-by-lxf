@@ -1328,4 +1328,10 @@ print "The largets number is %s\n it is the %dth number" %(m,n+1)
 def max(x,y):
 	if x>y:
 		return x
+	else:
+		return y
+
+main()
+
+
 

@@ -1341,6 +1341,9 @@ def main():
 	scores = [100,80.5,72,72,83,85,93,88]
 	aver = average(*scores)
 	print "average score is %5.2f\n" %aver
+def average(*array):
+	i = 1
+	sum = float(array[0])
 
 
 

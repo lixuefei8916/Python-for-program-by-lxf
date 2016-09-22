@@ -1345,6 +1345,9 @@ def average(*array):
 	i = 1
 	sum = float(array[0])
 
+	while i < len(array):
+		sum = sum + array[i]
+		i=i+1
 
 
 

@@ -1337,6 +1337,10 @@ main()
 
 76.	例7.10 有一个一维数组score，内放10个学生成绩，求平均成绩；
 # 给函数传递 列表
+def main():
+	scores = [100,80.5,72,72,83,85,93,88]
+	aver = average(*scores)
+	print "average score is %5.2f\n" %aver
 
 
 

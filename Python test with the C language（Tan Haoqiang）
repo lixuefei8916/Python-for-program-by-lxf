@@ -1349,5 +1349,8 @@ def average(*array):
 		sum = sum + array[i]
 		i=i+1
 
+aver = float(sum/len(array))
+	return float(aver)
+main()
 
 

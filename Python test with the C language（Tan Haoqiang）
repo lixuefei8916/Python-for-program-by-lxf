@@ -1364,6 +1364,16 @@ def main():
 	print "The verage of class A is %6.2f\n" %average(*score1)
 	print "The verage of class A is %6.2f\n" %average(*score2)
 
+def average(*array):
+	sum_ = array[0]
+	i = 1
+	while i < len(array):
+		sum_ = sum_ + array[i]
+		i=i+1
+	aver = sum_/float(len(array))
+	return aver
+
+main()
 
 
 

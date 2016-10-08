@@ -1394,5 +1394,11 @@ def sort(*array):
 		k = i
 		j = i+1
 
+		while j<len(array)-1:
+			if array[j]<array[k]:
+				k = j
+				t = array[k]
+				array[k] = array[i]
+				array[i]=t
 
 

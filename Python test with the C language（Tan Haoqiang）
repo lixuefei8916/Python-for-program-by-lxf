@@ -1390,6 +1390,9 @@ def main():
 def sort(*array):
 	i = 0
 
+	while i< len(array):
+		k = i
+		j = i+1
 
 
 

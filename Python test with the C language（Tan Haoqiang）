@@ -1400,5 +1400,9 @@ def sort(*array):
 				t = array[k]
 				array[k] = array[i]
 				array[i]=t
+				j = j+1
+		i = i+1
+
+main()
 
 

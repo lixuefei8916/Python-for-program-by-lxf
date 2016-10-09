@@ -1416,6 +1416,9 @@ def max_value(*array):
 	i = 0
 	while i < len(array):
 		j = 0
+		while j < len(array[0]):
+			if array[i][j]>max:
+				max = array[i][j]
 
 
 

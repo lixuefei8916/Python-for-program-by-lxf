@@ -1444,5 +1444,13 @@ def Max(*array):
 		i = i+1
 	return Max
 
+def Min(*array):
+	Min = array[0]
+	i = 1
+	while i<len(array):
+		if array[i]<Min:
+			Min = array[i]
+		i = i+1
+	return Min
 
 

@@ -1435,5 +1435,14 @@ def main():
 	print "max=%6.2f\n min=%6.2f\n average = %6.2f\n" %(Max_,Min_,ave)
 
 
+def Max(*array):
+	Max = array[0]
+	i = 1
+	while i<len(array):
+		if array[i]>Max:
+			Max = array[i]
+		i = i+1
+	return Max
+
 
 

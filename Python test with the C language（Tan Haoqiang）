@@ -1453,4 +1453,30 @@ def Min(*array):
 		i = i+1
 	return Min
 
+def average(*array):
+	sum = array[0]
+
+	i = 1
+	while i<len(array):
+		sum = sum+array[i]
+		i = i+1
+	aver = sum/len(array)
+	return aver
+main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

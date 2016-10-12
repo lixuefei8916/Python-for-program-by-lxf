@@ -1480,6 +1480,22 @@ def main():
 	print "max = %d \n" %max(a,b)    # a是局部变量 ， B是函数外的全局变量
 
 
+a = 3 		# a是全局变量
+b = 5
+
+def main():
+	a = 8  	#a是局部变量
+	print "max = %d \n" %max(a,b)    # a是局部变量 ， B是函数外的全局变量
+
+def max(x,y):
+	if x>y:
+		z = x
+	else:
+		z = y
+	return z
+main()
+
+
 
 
 

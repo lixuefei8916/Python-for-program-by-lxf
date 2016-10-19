@@ -61,5 +61,25 @@ stock = '600848'
 sh = ts.get_realtime_quotes(stock)[['time','code','name','price']]
 print u'买入  %s' %sh
 
+#------------------------------------------------------
+# 四、周线生命线
 
+stock = 'sh'
+lifeline_week_14 = 0  	#开关，0为不操作，1为操作
+
+# # Tushare自带的周MA5数据 （5周均线）
+sh_week_data = ts.get_hist_data(stock,ktype='W') #获取周k线数据
+sh_week_ma5 = str(sh_week_data['ma5'][0])
+print sh_week_ma5
+
+# LxF自写周MA5数据（5周均线）
+week_i = 0
+sh_count = 0
+MA_x = 5
+while week_i < MA_x:
+	sh_count = sh_count + sh_week_data['close'][week_i] 
+	week_i = week_i + 1
+sh_week_ma5_lxf = str(sh_count/MA_x)
+print sh_week_ma5_lxf
+#原理同 一、自写MA5代码 与 sh['ma5']的对比
 

@@ -12,15 +12,17 @@ print "tushare  MA5 = %s" %sh['ma5'][0]
 # LxF自写MA5数据（5日均线）
 day_i = 0
 sh_count = 0
-while day_i < 5:
+MA_x = 250
+while day_i < MA_x:
 	sh_count = sh_count + sh_year_line[day_i] 
 	day_i = day_i + 1
-print "lxf MA5=%s" %(sh_count/5)
+print "lxf MA5=%s" %(sh_count/MA_x)
 
 #运行结果
 #tushare  MA5 = 3061.742
 #lxf MA5=3061.742
 #为何重复造轮子呢？ 因为Tushare只给了MA5和20，我想自己写半年线和年线；
+#【所以如果想写年线， 就把 MA_x = 250 即可】
 
 #-----------------------------------------------------
 

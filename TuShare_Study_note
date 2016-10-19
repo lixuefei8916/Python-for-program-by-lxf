@@ -16,7 +16,7 @@ MA_x = 250
 while day_i < MA_x:
 	sh_count = sh_count + sh_year_line[day_i] 
 	day_i = day_i + 1
-print "lxf MA5=%s" %(sh_count/MA_x)
+print "lxf MA%s=%s" %(MA_X,sh_count/MA_x)
 
 #运行结果
 #tushare  MA5 = 3061.742

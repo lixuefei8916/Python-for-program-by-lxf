@@ -2,4 +2,26 @@
 import tushare as ts
 
 
+#-----------------------------------------------------
+# 一、自写MA5代码 与 sh['ma5']的对比
+
+# Tushare自带的MA5数据 （5日均线）
+sh = ts.get_hist_data(stock_name)
+print "tushare  MA5 = %s" %sh['ma5'][0]
+
+# LxF自写MA5数据（5日均线）
+day_i = 0
+sh_count = 0
+while day_i < 5:
+	sh_count = sh_count + sh_year_line[day_i] 
+	day_i = day_i + 1
+print "lxf MA5=%s" %(sh_count/5)
+
+#运行结果
+#tushare  MA5 = 3061.742
+#lxf MA5=3061.742
+#为何重复造轮子呢？ 因为Tushare只给了MA5和20，我想自己写半年线和年线；
+
+#-----------------------------------------------------
+
 

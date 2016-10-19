@@ -56,10 +56,10 @@ else:
 	print u"还未站稳年线"
 
 #------------------------------------------------------
-
-# 二、 自动化交易[日志],获取当前prince
+# 三、 自动化交易[日志],获取当前prince
 stock = '600848'
 sh = ts.get_realtime_quotes(stock)[['time','code','name','price']]
+print u'买入  %s' %sh
 
 
 

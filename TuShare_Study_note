@@ -57,5 +57,9 @@ else:
 
 #------------------------------------------------------
 
+# 二、 自动化交易[日志],获取当前prince
+stock = '600848'
+sh = ts.get_realtime_quotes(stock)[['time','code','name','price']]
+
 
 

@@ -12,11 +12,11 @@ print "tushare  MA5 = %s" %sh['ma5'][0]
 # LxF自写MA5数据（5日均线）
 day_i = 0
 sh_count = 0
-MA_x = 250
+MA_x = 5
 while day_i < MA_x:
-	sh_count = sh_count + sh_year_line[day_i] 
+	sh_count = sh_count + sh['close'][day_i] 
 	day_i = day_i + 1
-print "lxf MA%s=%s" %(MA_X,sh_count/MA_x)
+print "lxf MA%s=%s" %(MA_x,sh_count/MA_x)
 
 #运行结果
 #tushare  MA5 = 3061.742

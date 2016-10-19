@@ -34,3 +34,28 @@ sh_year_MA250 = sh_count/MA_x
 #-----------------------------------------------------
 
 
+#-----------------------------------------------------
+# 二、 判断是否上攻年线(MA250)
+bull_market = 0 	#牛市开关，0为非牛市，1为牛市
+
+# 昨日-收盘价数据
+sh = ts.get_hist_data(stock_name)
+sh_yesterday_close = str(sh['close'][0])
+
+# 当日-实时数据
+sh = ts.get_realtime_quotes('sh')
+sh_today_open = str(sh['open'][0])  #[0]：指获取大盘数值，其他辅助信息不显示，否则也无法计算；
+
+#判断是否上攻年线(当日开盘价 > 年线 and 昨日收盘价 > 年线)
+if sh_today_open > sh_year_MA250 and sh_yesterday_close > sh_year_MA250:
+	print u"昨日收盘%s 和 开盘价%s > 年线%s "%(sh_yesterday_close,sh_today_open,sh_year_MA250)
+	print u"已站稳年线"
+	bull_market = 1
+else:
+	print u"昨日收盘%s 和 开盘价%s < 年线%s "%(sh_yesterday_close,sh_today_open,sh_year_MA250)
+	print u"还未站稳年线"
+
+#------------------------------------------------------
+
+
+

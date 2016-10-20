@@ -1,4 +1,5 @@
 #-*- coding:utf-8 -*-
+import time
 import tushare as ts
 
 '''
@@ -9,6 +10,20 @@ import tushare as ts
 	就报错
 	改回ts.get_realtime_quotes('sh')就可以，不在class里也可以
 '''
+# ---------------------------
+'''
+使用：
+
+1. 安装，添加计划任务
+	每天早上 9:35开始执行
+
+2. 0,1,2 的注解
+	BS标记：file_ = r'd:\log_lxf_trade.txt'
+	0 为上一次卖出
+	1 为上25日线B
+	2 为45日上传25日 起爆B
+'''
+bull_market = False
 
 def log_write(write_data):
 	x = (write_data.encode('utf8')) #将unicode字符串 转 str
@@ -17,11 +32,24 @@ def log_write(write_data):
 	file_object.write(x+'\n')
 	file_object.close()
 
+def Trade_write(write_data):
+	file_ = r'd:\log_lxf_trade.txt'
+	file_object = open(file_,'w')
+	file_object.write(write_data)
+	file_object.close()
+
+def Trade_read():
+	file_ = r'd:\log_lxf_trade.txt'
+	file_object = open(file_,'r+')
+	for i in file_object:
+		return i
+	file_object.close()
+
 
 class Stock(object):
 	def __init__(self):
 		self.__stock_name = u''
-		self.__bull_market = False
+
 		self.__sh_year_MA250 = 0
 		self.__sh_his_data = ts.get_hist_data('sh')
 		self.__sh_today_data = ts.get_realtime_quotes('sh')
@@ -53,7 +81,7 @@ class Stock(object):
 		self.SH_yesterday_close()
 		self.SH_today_open()
 		if self.__sh_today_open > self.__sh_year_MA250 and self.__sh_yesterday_close > self.__sh_year_MA250:
-			self.__bull_market = True
+			bull_market = True
 			log = u"[买入]突破%s年线，可以买入！" %(self.__sh_year_MA250)
 			log_write(log)
 			return log
@@ -103,6 +131,7 @@ class Ge_Stock(object):
 		# 当日-实时数据
 		self.__today_open = float(self.__today_data['open'][0]) 
 
+
 	def lifeline_day(self,x):
 		self.__MA = self.MA(x)
 		self.yesterday_close()
@@ -110,19 +139,38 @@ class Ge_Stock(object):
 
 		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
 			self.__bull_market = True
-			log = u"[买入]突破%s生命线(MA%s)，可以买入！" %(self.__MA,x)
-			log_write(log)
-			return log
-		else:
-			self.__bull_market = False
-			if self.__today_open > (self.__MA-2):
-				log = u"[减仓]距离%s生命线(MA%s)很近，开盘%s,距离生命线(MA25)还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+			if Trade_read() == '0':
+				Stock_Now_price = ts.get_realtime_quotes('600848')[['date','time','code','name','price']]
+				log = u"[买入] %s" %(Stock_Now_price)
 				log_write(log)
+				Trade_write('1')
 				return log
 			else:
-				log = u"[空仓]距离%s生命线(MA%s)很远呢，开盘%s,距离生命线(MA25)还有%s点，空仓等待一段时间吧，保守起见" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+				return "No trade"
+		else:
+			if Trade_read() == ('1'or'2'):
+				Stock_Now_price = ts.get_realtime_quotes('600848')[['date','time','code','name','price']]
+				log = u"[卖出] %s" %(Stock_Now_price)
 				log_write(log)
+				Trade_write('0')
 				return log
+			else:
+				return "No trade"
+
+	def MA25_MA45(self):
+		self.today_open()
+		MA25 = self.MA(25)
+		MA45 = self.MA(45)	
+
+		if MA25 > MA45 and self.__today_open > MA25:
+			if Trade_read() == ('0'or'1'):
+				Stock_Now_price = ts.get_realtime_quotes('600848')[['date','time','code','name','price']]
+				log = u"[买入] %s" %(Stock_Now_price)
+				log_write(log)
+				Trade_write('2')
+				return log
+			else:
+				return "No trade"
 
 	def bull_market(self):
 		self.__MA = self.MA(250)
@@ -131,34 +179,34 @@ class Ge_Stock(object):
 
 		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
 			self.__bull_market = True
-			log =  u"[买入]突破%s年线，可以买入！" %(self.__MA)
+			Stock_Now_price = ts.get_realtime_quotes('600848')[['date','time','code','name','price']]
+			log = u"[买入] %s" %(Stock_Now_price)
 			log_write(log)
+			Trade_write('1')
 			return log
 		else:
-			self.__bull_market = False
-			if self.__today_open > (self.__MA-40):
-				log =  u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
-				log_write(log)
-				return log
-			else:
-				log = u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
-				log_write(log)
-				return log
-	def BS(self):
-		pass
-
+			Stock_Now_price = ts.get_realtime_quotes('600848')[['date','time','code','name','price']]
+			log = u"[卖出] %s" %(Stock_Now_price)
+			log_write(log)
+			Trade_write('1')
+			return log
 
 def __init__():
 	print u"-------------------"
-	print u"SH今日观察"
+	print u"DaPan情况"		
 	SH = Stock()
-	print SH.BS()
-	print u"-------------------"
-	print u"xxxxx今日观察"
-	lxf = Ge_Stock()
-	print lxf.bull_market()
-	print lxf.lifeline_day(25)
-	print lxf.lifeline_day(45)
-	print u"-------------------"
+
+	if bull_market == True:
+		print u"-------------------"
+		lxf = Ge_Stock()
+		print lxf.lifeline_day(25)
+		#print lxf.lifeline_day(45)
+		#print lxf.bull_market()
+		print lxf.MA25_MA45()
+		print u"-------------------"
+	else:
+		print SH.BS()
 
 __init__()
+
+time.sleep()

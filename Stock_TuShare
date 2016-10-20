@@ -26,13 +26,13 @@ class Sh(object):
 		# 昨日-收盘价数据
 		self.__sh_yesterday_close = float(self.__sh_his_data['close'][0])
 	
-	def SH_today_close(self):
+	def SH_today_open(self):
 		# 当日-实时数据
 		self.__sh_today_open = float(self.__sh_today_data['open'][0]) 
 
 	def SH_bull_market(self):
 		self.SH_yesterday_close()
-		self.SH_today_close()
+		self.SH_today_open()
 		if self.__sh_today_open > self.__sh_year_MA250 and self.__sh_yesterday_close > self.__sh_year_MA250:
 			self.__bull_market = True
 			return u"[买入]突破%s年线，可以买入！" %(self.__sh_year_MA250)
@@ -43,11 +43,11 @@ class Sh(object):
 			else:
 				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
 
-	def start(self):
+	def SH_BS(self):
 		self.__sh_year_MA250 = self.MA(250)
-		print "sh_year_MA250 OK"
-		self.SH_bull_market()
-		print "SH_bull_market OK"
+		return self.SH_bull_market()
 
-lxf = Sh()
-lxf.start()
+def __init__():
+	lxf = Sh()
+	print lxf.SH_BS()
+__init__()

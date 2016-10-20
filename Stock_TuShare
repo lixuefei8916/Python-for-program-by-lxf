@@ -1,0 +1,27 @@
+#-*- coding:utf-8 -*-
+import tushare as ts
+
+V = True
+
+class Sh(object):
+	def __init__(self):
+		self.__sh_year_MA250 = 0
+		self.__sh_data = ts.get_hist_data('sh')
+
+	def MA(self,MA_X):
+		i = 0
+		count = 0
+		MA_Y = MA_X
+		while i < MA_Y:
+			count = count + self.__sh_data['close'][i] 
+			i = i + 1
+		sh_MA = str(count/MA_Y)
+		return sh_MA
+
+
+	def start(self):
+		sh_year_MA250 = self.MA(250)
+		
+
+lxf = Sh()
+lxf.start()

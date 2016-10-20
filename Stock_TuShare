@@ -5,23 +5,49 @@ V = True
 
 class Sh(object):
 	def __init__(self):
+		self.__bull_market = False
 		self.__sh_year_MA250 = 0
-		self.__sh_data = ts.get_hist_data('sh')
+		self.__sh_his_data = ts.get_hist_data('sh')
+		self.__sh_today_data = ts.get_realtime_quotes('sh')
+		self.__sh_yesterday_close = 0
+		self.__sh_today_open = 0
 
 	def MA(self,MA_X):
 		i = 0
 		count = 0
 		MA_Y = MA_X
 		while i < MA_Y:
-			count = count + self.__sh_data['close'][i] 
+			count = count + self.__sh_his_data['close'][i] 
 			i = i + 1
-		sh_MA = str(count/MA_Y)
+		sh_MA = float(count/MA_Y)
 		return sh_MA
 
+	def SH_yesterday_close(self):
+		# 昨日-收盘价数据
+		self.__sh_yesterday_close = float(self.__sh_his_data['close'][0])
+	
+	def SH_today_close(self):
+		# 当日-实时数据
+		self.__sh_today_open = float(self.__sh_today_data['open'][0]) 
+
+	def SH_bull_market(self):
+		self.SH_yesterday_close()
+		self.SH_today_close()
+		if self.__sh_today_open > self.__sh_year_MA250 and self.__sh_yesterday_close > self.__sh_year_MA250:
+			self.__bull_market = True
+			return u"[买入]突破%s年线，可以买入！" %(self.__sh_year_MA250)
+		else:
+			self.__bull_market = False
+			if self.__sh_today_open > (self.__sh_year_MA250-40):
+				return u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+			else:
+				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
 
 	def start(self):
-		sh_year_MA250 = self.MA(250)
-		
+		self.__sh_year_MA250 = self.MA(250)
+		print "sh_year_MA250 OK"
+		self.SH_bull_market()
+		print "SH_bull_market OK"
 
 lxf = Sh()
 lxf.start()

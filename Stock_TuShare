@@ -1,16 +1,27 @@
 #-*- coding:utf-8 -*-
 import tushare as ts
 
-V = True
+'''
+问题：
+	self.__stock_name = 变量
+	self.__sh_his_data = ts.get_hist_data(变量)
+	self.__sh_today_data = ts.get_realtime_quotes(变量)
+	就报错
+	改回ts.get_realtime_quotes('sh')就可以，不在class里也可以
+'''
 
-class Sh(object):
+class Stock(object):
 	def __init__(self):
+		self.__stock_name = u''
 		self.__bull_market = False
 		self.__sh_year_MA250 = 0
-		self.__sh_his_data = ts.get_hist_data('sh')
-		self.__sh_today_data = ts.get_realtime_quotes('sh')
+		#self.__sh_his_data = ts.get_hist_data('sh')
+		#self.__sh_today_data = ts.get_realtime_quotes('sh')
 		self.__sh_yesterday_close = 0
 		self.__sh_today_open = 0
+
+	def set_stock(self,stock_code):
+		self.__stock_name = stock_code
 
 	def MA(self,MA_X):
 		i = 0
@@ -43,11 +54,86 @@ class Sh(object):
 			else:
 				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
 
-	def SH_BS(self):
+	def BS(self):
 		self.__sh_year_MA250 = self.MA(250)
 		return self.SH_bull_market()
 
+class Ge_Stock(object):
+	def __init__(self):
+		self.__stock_name = u''
+		self.__bull_market = False
+		self.__MA = 0
+		self.__his_data = ts.get_hist_data('600848')
+		self.__today_data = ts.get_realtime_quotes('600848')
+		self.__yesterday_close = 0
+		self.__today_open = 0
+
+	def set_stock(self,stock_code):
+		self.__stock_name = stock_code
+
+	def MA(self,MA_X):
+		i = 0
+		count = 0
+		MA_Y = MA_X
+		while i < MA_Y:
+			count = count + self.__his_data['close'][i] 
+			i = i + 1
+		sh_MA = float(count/MA_Y)
+		return sh_MA
+
+	def yesterday_close(self):
+		# 昨日-收盘价数据
+		self.__yesterday_close = float(self.__his_data['close'][0])
+	
+	def today_open(self):
+		# 当日-实时数据
+		self.__today_open = float(self.__today_data['open'][0]) 
+
+	def lifeline_day(self,x):
+		self.__MA = self.MA(x)
+		self.yesterday_close()
+		self.today_open()
+
+		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
+			self.__bull_market = True
+			return u"[买入]突破%s生命线(MA%s)，可以买入！" %(self.__MA,x)
+		else:
+			self.__bull_market = False
+			if self.__today_open > (self.__MA-2):
+				return u"[减仓]距离%s生命线(MA%s)很近，开盘%s,距离生命线(MA25)还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+			else:
+				return u"[空仓]距离%s生命线(MA%s)很远呢，开盘%s,距离生命线(MA25)还有%s点，空仓等待一段时间吧，保守起见" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+
+
+	def bull_market(self):
+		self.__MA = self.MA(250)
+		self.yesterday_close()
+		self.today_open()
+
+		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
+			self.__bull_market = True
+			return u"[买入]突破%s年线，可以买入！" %(self.__MA)
+		else:
+			self.__bull_market = False
+			if self.__today_open > (self.__MA-40):
+				return u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+			else:
+				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+
+	def BS(self):
+		pass
+
+
 def __init__():
-	lxf = Sh()
-	print lxf.SH_BS()
+	print u"-------------------"
+	print u"SH今日观察"
+	#SH = Stock()
+	#print SH.BS()
+	print u"-------------------"
+	print u"xxxxx今日观察"
+	lxf = Ge_Stock()
+	print lxf.bull_market()
+	print lxf.lifeline_day(25)
+	print lxf.lifeline_day(45)
+	print u"-------------------"
 __init__()

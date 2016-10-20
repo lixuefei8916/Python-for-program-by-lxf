@@ -10,13 +10,21 @@ import tushare as ts
 	改回ts.get_realtime_quotes('sh')就可以，不在class里也可以
 '''
 
+def log_write(write_data):
+	x = (write_data.encode('utf8')) #将unicode字符串 转 str
+	file_ = r'd:\log_lxf_test.txt'
+	file_object = open(file_,'a')
+	file_object.write(x+'\n')
+	file_object.close()
+
+
 class Stock(object):
 	def __init__(self):
 		self.__stock_name = u''
 		self.__bull_market = False
 		self.__sh_year_MA250 = 0
-		#self.__sh_his_data = ts.get_hist_data('sh')
-		#self.__sh_today_data = ts.get_realtime_quotes('sh')
+		self.__sh_his_data = ts.get_hist_data('sh')
+		self.__sh_today_data = ts.get_realtime_quotes('sh')
 		self.__sh_yesterday_close = 0
 		self.__sh_today_open = 0
 
@@ -46,13 +54,19 @@ class Stock(object):
 		self.SH_today_open()
 		if self.__sh_today_open > self.__sh_year_MA250 and self.__sh_yesterday_close > self.__sh_year_MA250:
 			self.__bull_market = True
-			return u"[买入]突破%s年线，可以买入！" %(self.__sh_year_MA250)
+			log = u"[买入]突破%s年线，可以买入！" %(self.__sh_year_MA250)
+			log_write(log)
+			return log
 		else:
 			self.__bull_market = False
 			if self.__sh_today_open > (self.__sh_year_MA250-40):
-				return u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log = u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log_write(log)
+				return log
 			else:
-				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log = u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log_write(log)
+				return log
 
 	def BS(self):
 		self.__sh_year_MA250 = self.MA(250)
@@ -96,14 +110,19 @@ class Ge_Stock(object):
 
 		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
 			self.__bull_market = True
-			return u"[买入]突破%s生命线(MA%s)，可以买入！" %(self.__MA,x)
+			log = u"[买入]突破%s生命线(MA%s)，可以买入！" %(self.__MA,x)
+			log_write(log)
+			return log
 		else:
 			self.__bull_market = False
 			if self.__today_open > (self.__MA-2):
-				return u"[减仓]距离%s生命线(MA%s)很近，开盘%s,距离生命线(MA25)还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+				log = u"[减仓]距离%s生命线(MA%s)很近，开盘%s,距离生命线(MA25)还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+				log_write(log)
+				return log
 			else:
-				return u"[空仓]距离%s生命线(MA%s)很远呢，开盘%s,距离生命线(MA25)还有%s点，空仓等待一段时间吧，保守起见" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
-
+				log = u"[空仓]距离%s生命线(MA%s)很远呢，开盘%s,距离生命线(MA25)还有%s点，空仓等待一段时间吧，保守起见" %(self.__MA,x,self.__today_open,(self.__MA-self.__today_open))
+				log_write(log)
+				return log
 
 	def bull_market(self):
 		self.__MA = self.MA(250)
@@ -112,14 +131,19 @@ class Ge_Stock(object):
 
 		if self.__today_open > self.__MA and self.__yesterday_close > self.__MA:
 			self.__bull_market = True
-			return u"[买入]突破%s年线，可以买入！" %(self.__MA)
+			log =  u"[买入]突破%s年线，可以买入！" %(self.__MA)
+			log_write(log)
+			return log
 		else:
 			self.__bull_market = False
 			if self.__today_open > (self.__MA-40):
-				return u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log =  u"[减仓]距离%s年线很近，开盘%s,距离年线还有%s点，建议减仓等待反复震荡，直至突破！" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log_write(log)
+				return log
 			else:
-				return u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
-
+				log = u"[空仓]距离%s年线很远呢，开盘%s,距离年线还有%s点，空仓等待一段时间吧，保守起见" %(self.__sh_year_MA250,self.__sh_today_open,(self.__sh_year_MA250-self.__sh_today_open))
+				log_write(log)
+				return log
 	def BS(self):
 		pass
 
@@ -127,8 +151,8 @@ class Ge_Stock(object):
 def __init__():
 	print u"-------------------"
 	print u"SH今日观察"
-	#SH = Stock()
-	#print SH.BS()
+	SH = Stock()
+	print SH.BS()
 	print u"-------------------"
 	print u"xxxxx今日观察"
 	lxf = Ge_Stock()
@@ -136,4 +160,5 @@ def __init__():
 	print lxf.lifeline_day(25)
 	print lxf.lifeline_day(45)
 	print u"-------------------"
+
 __init__()
